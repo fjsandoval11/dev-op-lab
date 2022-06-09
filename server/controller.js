@@ -19,6 +19,7 @@ module.exports = {
         res.status(200).send(movies)
     },
      deleteMovie: (req, res) => {
+        rollbar.log('someone requested to delete a movie')
         let index = movies.findIndex(elem => elem.id === +req.params.id)
         movies.splice(index, 1)
         res.status(200).send(movies)
