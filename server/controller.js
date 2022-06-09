@@ -2,6 +2,16 @@ const movies = require('./db.json')
 
 let globalId = 11
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '60f40d105bd1447dbb914fee33a0770f',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
 
 
 module.exports = {
